@@ -1,0 +1,27 @@
+<template>
+  <require from="../value-converters/date-format"></require>
+  
+   <!-- Post -->
+   <div class="blog-post">
+
+    <!-- Title -->
+    <h2 class="blog-post-title">${post.title}</h2>
+
+    <!-- Date / Author -->
+    <p class="blog-post-meta">${post.createdAt | dateFormat} <a href="#">by ${post.author}</a></p>
+
+    <!-- Tags -->
+    <div class="blog_tags" repeat.for="tag of post.tags">
+      <a route-href="route: tag-view; params.bind: {tag}">
+        <span class="badge bg-info text-light">${tag}</span>
+      </a>
+    </div>
+    <!-- end Tags -->
+
+    <!-- Body -->
+    <p>${post.body}</p>
+    
+  </div>
+  <!-- end Post -->
+
+</template>

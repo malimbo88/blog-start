@@ -1,0 +1,21 @@
+<template>
+  <h1>Login</h1>
+
+  <!-- Error -->
+  <div class="alert alert-danger" if.bind="error">
+    ${error}
+  </div>
+  <!-- end Error -->
+
+  <!-- Login -->
+  <div class="login_container">
+    <form  class="form-inline" submit.delegate="login()">
+      <div class="form-group mr-3">
+        <input class="form-control" type="text" placeholder="Name" value.bind="name">
+      </div>
+      <button class="btn btn-info" type="submit">Log in</button>
+    </form>
+  </div>
+  <!-- end Login -->
+
+</template>

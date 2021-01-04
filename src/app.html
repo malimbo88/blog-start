@@ -1,0 +1,114 @@
+<template>
+  <require from="./assets/style/blog.scss"></require>
+  
+  <!-- Bootstrap blog -->
+
+  <!-- Header -->
+  <header>
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+          <a class="blog-nav-item ${router.currentInstruction.config.name === 'home' ? 'active' : ''}" href="#">Home</a>
+          <a class="blog-nav-item ${router.currentInstruction.config.name === 'login' ? 'active' : ''}" route-href="login" if.bind="!currentUser">Log in</a>
+          <a class="blog-nav-item" href="#" if.bind="!currentUser">Sign up</a>
+          <a class="blog-nav-item" href="#" if.bind="currentUser">New post</a>
+          <a class="blog-nav-item" href="#" if.bind="currentUser" click.delegate="logout()">Log out</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <!-- end Header -->
+
+  <!-- Main -->
+  <main>
+    <div class="container">
+
+      <!-- Main title -->
+      <div class="blog-header">
+        <h1 class="blog-title">The Bootstrap Blog</h1>
+        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+      </div>
+      <!-- end Main title -->
+  
+      <div class="row">
+  
+        <!-- Main posts -->
+        <div class="col-sm-8 blog-main">
+  
+          <!-- Router view -->
+          <router-view></router-view>
+  
+          <!-- Pagination -->
+          <nav>
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
+          <!-- end Pagination -->
+  
+        </div>
+        <!-- end Main posts -->
+  
+        <!-- Sidebar -->
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+
+          <!-- Current user -->
+          <div class="current_user sidebar-module sidebar-module-inset">
+            <span class="welcome">Welcome</span>
+            <span class="user_name"> ${currentUser || 'Guest'}</span>
+          </div>
+
+          <!-- Tags -->
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Tags</h4>
+            <span repeat.for="tag of tags">
+              <a route-href="route: tag-view; params.bind: {tag}">
+                <span class="badge bg-info text-light">${tag}</span>
+              </a>
+            </span>
+          </div>
+          <!-- end Tags -->
+
+          <!-- Archives -->
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <li repeat.for="archive of archives">
+                <a route-href="route: archive-view; params.bind: {archive}">${archive}</a>
+              </li>
+            </ol>
+          </div>
+          <!-- end Archives -->
+
+          <!-- Socials -->
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ol>
+          </div>
+          <!-- Socials -->
+
+        </div>
+        <!-- end Sidebar -->
+  
+      </div>
+    </div>
+  </main>
+  <!-- end Main -->
+
+  <!-- Footer -->
+  <footer class="blog-footer">
+    <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>
+      <a href="#">Back to top</a>
+    </p>
+  </footer>
+  <!-- end Footer -->
+
+  <!-- end Bootstrap blog -->
+
+</template>

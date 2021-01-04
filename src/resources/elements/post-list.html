@@ -1,0 +1,29 @@
+<template bindable="error, posts">
+  <require from="./blog-post"></require>
+
+  <!-- Error -->
+  <div class="alert alert-danger" if.bind="error">
+    ${error}
+  </div>
+  <!-- end Error -->
+
+  <!-- Title selected -->
+  <p class="alert bg-dark text-light">
+    <slot></slot>
+  </p>
+
+  <!-- Post container -->
+  <div repeat.for="post of posts">
+
+    <!-- Blog post -->
+    <blog-post post.bind="post"></blog-post>
+
+    <!-- Link to post -->
+    <a route-href="route: post-view; params.bind: {slug: post.slug}">View post</a>
+
+    <hr>
+
+  </div>
+  <!-- end Post container -->
+
+</template>
