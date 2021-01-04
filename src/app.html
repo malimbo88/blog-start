@@ -17,7 +17,7 @@
           <a class="blog-nav-item ${router.currentInstruction.config.name === 'signup' ? 'active' : ''}" route-href="signup" if.bind="!currentUser">
             Sign up
           </a>
-          <a class="blog-nav-item" href="#" if.bind="currentUser">
+          <a class="blog-nav-item ${router.currentInstruction.config.name === 'create-post' ? 'active' : ''}" route-href="create-post" if.bind="currentUser">
             New post
           </a>
           <a class="blog-nav-item" href="#" if.bind="currentUser" click.delegate="logout()">

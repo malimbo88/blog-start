@@ -1,3 +1,35 @@
 <template>
-  <h1>${message}</h1>
+
+  <!-- Create Post -->
+  <div class="create_container">
+
+    <!-- Title -->
+    <h2>Creat Post</h2>
+
+    <!-- Create form -->
+    <form submit.delegate="createPost()">
+
+      <!-- Title -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" placeholder="Title" value.bind="post.title">
+      </div>
+      <!-- end Title -->
+
+      <!-- Body -->
+      <div class="form-group">
+        <label for="body">Body</label>
+        <textarea class="form-control" cols="30" rows="10" value.bind="post.body"></textarea>
+      </div>
+      <!-- end Body -->
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-primary">Create</button>
+
+    </form>
+    <!-- end Create form -->
+
+  </div>
+  <!-- end Create Post -->
+  
 </template>
