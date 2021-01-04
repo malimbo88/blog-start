@@ -39,7 +39,8 @@ export class App {
     config.title = 'My Blog';
     config.map([
       {route: '', name: 'home', moduleId: PLATFORM.moduleName('posts/index'), title: 'All posts'},
-      {route: 'login', name: 'login', moduleId: PLATFORM.moduleName('auth/login'), title: 'PLog in'},
+      {route: 'login', name: 'login', moduleId: PLATFORM.moduleName('auth/login'), title: 'Log in'},
+      {route: 'signup', name: 'signup', moduleId: PLATFORM.moduleName('auth/signup'), title: 'Sign up'},
       {route: 'post/:slug', name: 'post-view', moduleId: PLATFORM.moduleName('posts/view'), title: 'View post'},
       {route: 'tag/:tag', name: 'tag-view', moduleId: PLATFORM.moduleName('posts/tag-view'), title: 'View by tag'},
       {route: 'archive/:archive', name: 'archive-view', moduleId: PLATFORM.moduleName('posts/archive-view'), title: 'Post by archive'}

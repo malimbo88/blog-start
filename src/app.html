@@ -8,11 +8,21 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
-          <a class="blog-nav-item ${router.currentInstruction.config.name === 'home' ? 'active' : ''}" href="#">Home</a>
-          <a class="blog-nav-item ${router.currentInstruction.config.name === 'login' ? 'active' : ''}" route-href="login" if.bind="!currentUser">Log in</a>
-          <a class="blog-nav-item" href="#" if.bind="!currentUser">Sign up</a>
-          <a class="blog-nav-item" href="#" if.bind="currentUser">New post</a>
-          <a class="blog-nav-item" href="#" if.bind="currentUser" click.delegate="logout()">Log out</a>
+          <a class="blog-nav-item ${router.currentInstruction.config.name === 'home' ? 'active' : ''}" href="#">
+            Home
+          </a>
+          <a class="blog-nav-item ${router.currentInstruction.config.name === 'login' ? 'active' : ''}" route-href="login" if.bind="!currentUser">
+            Log in
+          </a>
+          <a class="blog-nav-item ${router.currentInstruction.config.name === 'signup' ? 'active' : ''}" route-href="signup" if.bind="!currentUser">
+            Sign up
+          </a>
+          <a class="blog-nav-item" href="#" if.bind="currentUser">
+            New post
+          </a>
+          <a class="blog-nav-item" href="#" if.bind="currentUser" click.delegate="logout()">
+            Log out
+          </a>
         </nav>
       </div>
     </div>

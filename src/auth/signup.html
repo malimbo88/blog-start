@@ -1,10 +1,10 @@
 <template>
 
-  <!-- Login -->
-  <div class="login_container">
+  <!-- Sign up -->
+  <div class="signup_container">
 
     <!-- Title -->
-    <h2 class="mb-4">Login</h2>
+    <h2 class="mb-4">Sign up</h2>
 
     <!-- Error -->
     <div class="alert alert-danger" if.bind="error">
@@ -12,16 +12,16 @@
     </div>
     <!-- end Error -->
 
-    <!-- Login form -->
-    <form  class="form-inline" submit.delegate="login()">
+    <!-- Sign up form -->
+    <form  class="form-inline" submit.delegate="signup()">
       <div class="form-group mr-3">
         <input class="form-control" type="text" placeholder="Name" value.bind="name">
       </div>
-      <button class="btn btn-info" type="submit">Log in</button>
+      <button class="btn btn-info" type="submit">Sign up</button>
     </form>
-    <!-- end Login form -->
+    <!-- end Sign up form -->
 
   </div>
-  <!-- end Login -->
+  <!-- end Sign up -->
 
 </template>
