@@ -21,6 +21,15 @@ export class App {
     this.subscription = this.eventAggregator.subscribe('user', user => {
       this.currentUser = this.authService.currentUser;
     })
+  
+    this.updateSidebar();
+    this.postSubscription = this.eventAggregator.subscribe('post-updated', updatedAt => {
+      this.updateSidebar();
+    });
+  }
+
+  // Updated sidebar
+  updateSidebar() {
     this.postService.allTags().then(data => {
       this.tags = data.tags;
     }).catch(error => {
@@ -43,6 +52,7 @@ export class App {
       {route: 'signup', name: 'signup', moduleId: PLATFORM.moduleName('auth/signup'), title: 'Sign up'},
       {route: 'create-post', name: 'create-post', moduleId: PLATFORM.moduleName('posts/create'), title: 'Create post'},
       {route: 'post/:slug', name: 'post-view', moduleId: PLATFORM.moduleName('posts/view'), title: 'View post'},
+      {route: 'post/:slug/edit', name: 'post-edit', moduleId: PLATFORM.moduleName('posts/edit'), title: 'Edit post'},
       {route: 'tag/:tag', name: 'tag-view', moduleId: PLATFORM.moduleName('posts/tag-view'), title: 'View by tag'},
       {route: 'archive/:archive', name: 'archive-view', moduleId: PLATFORM.moduleName('posts/archive-view'), title: 'Post by archive'}
     ]);
@@ -51,6 +61,7 @@ export class App {
   // Detached
   detached() {
     this.subscription.dispose();
+    this.postSubscription.dispose();
   }
 
   // Logout
